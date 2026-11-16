@@ -362,3 +362,167 @@
             font-size: 16px;
             font-weight: 500;
             color: #fda4af;
+            animation: fadeIn 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lock-screen">
+        <div class="lock-box">
+            <div class="heart-icon">❤️</div>
+            <h1 class="lock-title">Sadece İkimiz İçin</h1>
+            <p class="lock-sub">Bu özel dünyaya girmek için ikimizin şifresini gir</p>
+            <input type="password" id="pin" class="pin-input" maxlength="4" placeholder="••••" inputmode="numeric">
+            <button class="btn-primary" onclick="checkPin()">Kilidi Aç</button>
+            <div id="error-msg"></div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="card">
+            <img src="foto9.jpg" alt="Biz" class="hero-img">
+            <h2 class="section-title">İyi Ki Varsın Sevgilim</h2>
+            <p class="section-desc">Birlikte geçen her saniyemiz ayrı bir mucize...</p>
+            <div class="counter-grid" id="counter">
+                <div class="counter-box"><span class="counter-num" id="days">0</span><span class="counter-label">Gün</span></div>
+                <div class="counter-box"><span class="counter-num" id="hours">0</span><span class="counter-label">Saat</span></div>
+                <div class="counter-box"><span class="counter-num" id="minutes">0</span><span class="counter-label">Dakika</span></div>
+                <div class="counter-box"><span class="counter-num" id="seconds">0</span><span class="counter-label">Saniye</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Bizim Şarkılarımız</h2>
+            <p class="section-desc">Senin için hazırladığım özel listeyi aç ve anılarımıza göz at</p>
+            <iframe style="border-radius:14px" src="https://spotify.com" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Anı Defterimiz</h2>
+            <p class="section-desc">Fotoğrafları kaydırarak güzel anlarımızı hatırla</p>
+            <div class="slider-wrapper">
+                <div class="slides" id="slides">
+                    <div class="slide"><img src="foto1.jpg" alt="Anı 1"><div class="slide-caption">Yanımda olduğun her an huzur ❤️</div></div>
+                    <div class="slide"><img src="foto10.jpg" alt="Anı 2"><div class="slide-caption">Güneş bile gülüşünün yanında sönük kalıyor</div></div>
+                    <div class="slide"><img src="foto5.jpg" alt="Anı 3"><div class="slide-caption">Siyah beyaz karelerde bile en güzel renk sensin</div></div>
+                    <div class="slide"><img src="foto6.jpg" alt="Anı 4"><div class="slide-caption">Baş başa, dünyadan uzak...</div></div>
+                    <div class="slide"><img src="foto7.jpg" alt="Anı 5"><div class="slide-caption">Sana sarılmak her şeye bedel</div></div>
+                    <div class="slide"><img src="foto3.jpg" alt="Anı 6"><div class="slide-caption">En tatlı hallerimiz ✨</div></div>
+                    <div class="slide"><img src="foto8.jpg" alt="Anı 7"><div class="slide-caption">Seninle her mevsim bahar</div></div>
+                    <div class="slide"><img src="foto4.jpg" alt="Anı 8"><div class="slide-caption">Elin elimde, gözün gözümde olsun hep</div></div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="nav-btn" onclick="moveSlide(-1)">&#10094;</button>
+                <span class="slide-indicator" id="slide-num">1 / 8</span>
+                <button class="nav-btn" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="foto2.jpg" alt="Güzelim" class="portrait-img">
+            <h2 class="section-title">Sana Bir Notum Var</h2>
+            <div class="letter-text">
+                <p><strong>Biricik Sevgilime,</strong></p>
+                <p>Buluştuğumuz ilk günden beri hayatımda değişen o kadar çok güzel şey var ki, kelimelere dökmeye kalksam muhtemelen yetmez. Seninle geçirdiğim her an, gülüşünü gördüğüm her saniye bana "iyi ki" dedirtiyor.</p>
+                <p>Her ilişki gibi bizim de inişlerimiz çıkışlarımız oldu. Biliyorum, bazen istemeden de olsa kalbini kırdığım, seni üzdüğüm zamanlar yaşandı. Gönlünü almış olsam da yaptığım hataların farkında olduğumu ve o anları unutmadığımı bilmeni isterim. Seni bir daha üzmemek için elimden geleni yapacağıma söz veriyorum; çünkü benim için her şeyden daha değerlisin.</p>
+                <p>Biz zaten kalben birbirimizin olduk, her halimizle "biz" olmayı başardık. Yan yana olduğumuzda zamanın nasıl geçtiğini anlamadığım, sesini duyduğumda bile günümün güzelleştiği tek insansın. Bu küçük siteyi, hem birlikte biriktirdiğimiz anılara baktıkça yüzün gülsün diye hem de sana olan hislerimi her an yanında taşıyabilmen için hazırladım.</p>
+                <p>Ama içimde eksik kalan, senin de hak ettiğin çok özel bir adım vardı. Her şeyimizle zaten sevgiliyiz ama bunu sadece hissetmekle kalmayıp sana yakışır şekilde sormak istedim...</p>
+            </div>
+        </div>
+
+        <div class="card proposal-card" id="proposal-box">
+            <h2 class="proposal-question">Hayatıma anlam katan güzel kadın,<br>benimle çıkar mısın? ❤️</h2>
+            <div class="proposal-btns" id="btn-area">
+                <button class="btn-yes" onclick="sayYes()">EVET! ❤️</button>
+                <button class="btn-no" id="no-btn" onmouseover="runAway()" ontouchstart="runAway()">Hayır</button>
+            </div>
+            <div id="accepted-msg">Artık resmen sevgiliyiz! Seni her şeyden çok seviyorum ❤️🎉</div>
+        </div>
+    </div>
+
+    <script>
+        function checkPin() {
+            const pin = document.getElementById('pin').value;
+            const error = document.getElementById('error-msg');
+            if (pin === '0809') {
+                document.getElementById('lock-screen').classList.add('hidden');
+                document.getElementById('main-content').style.display = 'flex';
+                confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
+            } else {
+                error.textContent = "Yanlış şifre güzelim, tekrar dene ❤️";
+                document.getElementById('pin').value = '';
+            }
+        }
+
+        document.getElementById('pin').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPin();
+        });
+
+        const startDate = new Date("2026-09-08T00:00:00").getTime();
+        function updateCounter() {
+            const now = new Date().getTime();
+            const diff = Math.abs(now - startDate);
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        let currentSlide = 0;
+        const totalSlides = 8;
+        function moveSlide(step) {
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            document.getElementById('slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.getElementById('slide-num').textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function runAway() {
+            const noBtn = document.getElementById('no-btn');
+            const box = document.getElementById('proposal-box');
+            const maxX = box.clientWidth - noBtn.clientWidth - 30;
+            const maxY = box.clientHeight - noBtn.clientHeight - 30;
+            
+            const randomX = Math.floor(Math.random() * maxX) - (maxX / 2);
+            const randomY = Math.floor(Math.random() * maxY) - (maxY / 2);
+            
+            noBtn.style.position = 'relative';
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function sayYes() {
+            document.getElementById('btn-area').style.display = 'none';
+            document.getElementById('accepted-msg').style.display = 'block';
+            
+            const duration = 3000;
+            const end = Date.now() + duration;
+            (function frame() {
+                confetti({
+                    particleCount: 7,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#e11d48', '#ffffff', '#a855f7']
+                });
+                confetti({
+                    particleCount: 7,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#e11d48', '#ffffff', '#a855f7']
+                });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
+    </script>
+</body>
+</html>
